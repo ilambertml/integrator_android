@@ -2,10 +2,11 @@ package com.example.integrator_android.Views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.integrator_android.R
 
 class TyCActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ty_cactivity)
+        setContentView(R.layout.activity_tyc_activity)
     }
 }
