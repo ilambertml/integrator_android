@@ -1,11 +1,13 @@
 package com.example.integrator_android.Views
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.integrator_android.R
 import com.example.integrator_android.databinding.ActivityMainBinding
 
 
@@ -46,8 +48,13 @@ class MainActivity : AppCompatActivity() {
 
 
         val intent = Intent(this, ActivitiesActivity::class.java).apply {
-            putExtra("participants",participants)
+            //putExtra("participants",participants)
+
+        val sharedPrefEditor = getSharedPreferences("preference_participants", Context.MODE_PRIVATE).edit()
+            sharedPrefEditor.putInt("participants",participants).apply()
+
         }
+
         startActivity(intent)
     }
 }
