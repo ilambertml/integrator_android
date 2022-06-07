@@ -16,7 +16,7 @@ class ActivitiesActivity : AppCompatActivity() {
         binding = ActivityActivitiesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val activitiesList: MutableList<String> = mutableListOf(getString(R.string.actRandom),
+        val activitiesList: List<String> = listOf(getString(R.string.actRandom),
             getString(R.string.actEducation), getString(R.string.actRec), getString(R.string.actSocial),
             getString(R.string.actDIY), getString(R.string.actCharity), getString(R.string.actCooking),
             getString(R.string.actRelaxation), getString(R.string.actMusic), getString(R.string.actBusywork))
