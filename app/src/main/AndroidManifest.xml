@@ -16,6 +16,17 @@
         android:theme="@style/Theme.Integrator_android"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+        <activity
+            android:name=".Views.MainActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".Views.ActivitiesActivity"
             android:exported="false" />
@@ -24,16 +35,11 @@
             android:exported="false" />
         <activity
             android:name=".Views.TyCActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Views.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar"
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            />
+
     </application>
 
 </manifest>
