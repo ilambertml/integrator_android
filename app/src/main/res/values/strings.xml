@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">integrator_android</string>
+    <string name="tv_activity_suggestions_participants">Participants</string>
+    <string name="tv_activity_suggestions_price">Price</string>
+    <string name="tv_activity_suggestions_try_another">Try another</string>
     <string name="actRandom">Random</string>
     <string name="actEducation">Education</string>
     <string name="actRec">Recreational</string>
