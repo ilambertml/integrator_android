@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.integrator_android.Model.Prefs
 import com.example.integrator_android.R
 import com.example.integrator_android.Views.SuggestionsActivity
 import com.example.integrator_android.databinding.ActivityActivitiesBinding
@@ -18,6 +19,8 @@ class ActivitiesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityActivitiesBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val prefs = Prefs(this)
 
         val activitiesList: List<String> = listOf(getString(R.string.actRandom),
             getString(R.string.actEducation), getString(R.string.actRec), getString(R.string.actSocial),
@@ -42,11 +45,7 @@ class ActivitiesActivity : AppCompatActivity() {
                 9 -> type = getString(R.string.typeBusywork)
             }
 
-            if(type == getString(R.string.typeNone)){
-                // TODO: enviar API sin type
-            }else{
-                // TODO: enviar API con type
-            }
+            prefs.saveCategory(type)
 
             navigateSuggestions()
         }

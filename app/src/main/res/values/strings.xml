@@ -50,7 +50,7 @@ nullam pellentesque.</string>
     <string name="text_participants">Participants</string>
     <string name="btn_term_and_cond">Terms and Conditions</string>
     <string name="btn_start">Start</string>
-    <string name="typeNone">none</string>
+    <string name="typeNone">random</string>
     <string name="typeEdu">education</string>
     <string name="typeRec">recreational</string>
     <string name="typeSocial">social</string>
