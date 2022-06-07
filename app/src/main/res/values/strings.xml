@@ -51,4 +51,5 @@ nullam pellentesque.</string>
     <string name="btn_term_and_cond">Terms and Conditions</string>
     <string name="btn_start">Start</string>
     <string name="chbx_terms_cond">I accept terms and conditions</string>
+    <string name="please_check">Please accept terms and conditions</string>
 </resources>

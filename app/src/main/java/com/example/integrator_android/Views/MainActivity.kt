@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         binding.startBtn.setOnClickListener {
 
             val termsAndConditions = prefs.getStateTermsAndCondition()
+
+
             if (termsAndConditions) {
                 val participants =
                     findViewById<EditText>(com.example.integrator_android.R.id.editTextParticipants)
@@ -44,12 +46,12 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
-        
-        binding.TandCBtn.setOnClickListener { 
+
+        binding.TandCBtn.setOnClickListener {
             navigateTandC()
         }
     }
-    
+
     private fun navigateTandC(){
         //obtain participant number
 
