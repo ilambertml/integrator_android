@@ -3,6 +3,8 @@ package com.example.integrator_android.Views
 import android.app.Application
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var numParticipants: String
+    private var i = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +53,28 @@ class MainActivity : AppCompatActivity() {
         binding.TandCBtn.setOnClickListener {
             navigateTandC()
         }
+
+        binding.editTextParticipants.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {}
+
+            override fun beforeTextChanged(intInserted: CharSequence, start: Int,
+                                           count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(intInserted: CharSequence, start: Int,
+                                       before: Int, count: Int) {
+
+                if (intInserted.length == 0){
+                    binding.startBtn.setEnabled(false)
+                } else {
+                    binding.startBtn.setEnabled(true)
+                }
+                
+            }
+        })
+
+
     }
 
     private fun navigateTandC(){
