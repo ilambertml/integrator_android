@@ -28,6 +28,26 @@ class ActivitiesActivity : AppCompatActivity() {
         binding.activitiesLV.adapter = listAdapter
         
         binding.activitiesLV.setOnItemClickListener { parent, view, position, id ->
+            var type = getString(R.string.typeNone)
+            when(position){
+                0 -> type = getString(R.string.typeNone)
+                1 -> type = getString(R.string.typeEdu)
+                2 -> type = getString(R.string.typeRec)
+                3 -> type = getString(R.string.typeSocial)
+                4 -> type = getString(R.string.typeDIY)
+                5 -> type = getString(R.string.typeCharity)
+                6 -> type = getString(R.string.typeCooking)
+                7 -> type = getString(R.string.typeRelaxation)
+                8 -> type = getString(R.string.typeMusic)
+                9 -> type = getString(R.string.typeBusywork)
+            }
+
+            if(type == getString(R.string.typeNone)){
+                // TODO: enviar API sin type
+            }else{
+                // TODO: enviar API con type
+            }
+
             navigateSuggestions()
         }
 
