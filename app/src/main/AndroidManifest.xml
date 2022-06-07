@@ -17,10 +17,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ActivitiesActivity"
+            android:name=".Views.ActivitiesActivity"
             android:exported="false" />
         <activity
-            android:name=".SuggestionsActivity"
+            android:name=".Views.SuggestionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Views.TyCActivity"
             android:exported="false" />
         <activity
             android:name=".Views.MainActivity"
