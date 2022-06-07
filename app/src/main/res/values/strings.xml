@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">integrator_android</string>
+    <string name="actRandom">Random</string>
+    <string name="actEducation">Education</string>
+    <string name="actRec">Recreational</string>
+    <string name="actSocial">Social</string>
+    <string name="actDIY">Do-It-Yourself</string>
+    <string name="actCharity">Charity</string>
+    <string name="actCooking">Cooking</string>
+    <string name="actRelaxation">Relaxation</string>
+    <string name="actMusic">Music</string>
+    <string name="actBusywork">Busywork</string>
+    <string name="titleActivities">Activities</string>
 </resources>
