@@ -52,4 +52,15 @@ nullam pellentesque.</string>
     <string name="btn_start">Start</string>
     <string name="chbx_terms_cond">I accept terms and conditions</string>
     <string name="please_check">Please accept terms and conditions</string>
+    <string name="typeNone">random</string>
+    <string name="typeEdu">education</string>
+    <string name="typeRec">recreational</string>
+    <string name="typeSocial">social</string>
+    <string name="typeDIY">diy</string>
+    <string name="typeCharity">charity</string>
+    <string name="typeCooking">cooking</string>
+    <string name="typeRelaxation">relaxation</string>
+    <string name="typeMusic">music</string>
+    <string name="typeBusywork">busywork</string>
+
 </resources>
