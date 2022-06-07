@@ -24,13 +24,14 @@
             android:exported="false" />
         <activity
             android:name=".Views.TyCActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".Views.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
