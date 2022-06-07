@@ -1,11 +1,14 @@
 package com.example.integrator_android.Views
 
+import android.R.attr.text
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.integrator_android.ActivitiesListAdapter
 import com.example.integrator_android.R
 import com.example.integrator_android.databinding.ActivityActivitiesBinding
+
 
 class ActivitiesActivity : AppCompatActivity() {
 
@@ -33,6 +36,19 @@ class ActivitiesActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
+
+        intent.extras?.run {
+            val participants = getInt("participants")
+            val toast = Toast.makeText(
+                applicationContext,
+                "Cantidad de participantes: $participants ",
+                Toast.LENGTH_SHORT
+            )
+            toast.show()
+        }
+
+
+
 
     }
 
