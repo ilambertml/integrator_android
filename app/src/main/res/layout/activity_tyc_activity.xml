@@ -72,15 +72,15 @@
 
     <ScrollView
         android:id="@+id/scrollViewTermAndCond"
-        android:layout_width="331dp"
-        android:layout_height="488dp"
+        android:layout_width="307dp"
+        android:layout_height="464dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintHorizontal_bias="0.634"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textNotBored"
-        app:layout_constraintVertical_bias="0.238">
+        app:layout_constraintVertical_bias="0.236">
 
         <TextView
             android:id="@+id/textTermsAndCond"
@@ -91,6 +91,17 @@
 
 
     </ScrollView>
+
+    <CheckBox
+        android:id="@+id/chbxTermsAndCond"
+        android:layout_width="297dp"
+        android:layout_height="39dp"
+        android:text="@string/chbx_terms_cond"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.939" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
