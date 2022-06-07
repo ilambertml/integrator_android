@@ -1,13 +1,12 @@
-package com.example.integrator_android.Views
+package com.example.integrator_android.Views.activitiesList
 
-import android.R.attr.text
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.integrator_android.ActivitiesListAdapter
 import com.example.integrator_android.R
+import com.example.integrator_android.Views.SuggestionsActivity
 import com.example.integrator_android.databinding.ActivityActivitiesBinding
 
 

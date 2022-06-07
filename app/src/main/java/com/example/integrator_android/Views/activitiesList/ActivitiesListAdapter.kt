@@ -1,4 +1,4 @@
-package com.example.integrator_android
+package com.example.integrator_android.Views.activitiesList
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import com.example.integrator_android.R
 
 class ActivitiesListAdapter(context: Context, private val itemList: List<String>): BaseAdapter(){
 

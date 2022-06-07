@@ -1,4 +1,4 @@
-package com.example.integrator_android
+package com.example.integrator_android.Model
 
 import com.google.gson.annotations.SerializedName
 
