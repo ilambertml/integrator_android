@@ -23,10 +23,11 @@ class ActivitiesActivity : AppCompatActivity() {
 
         val listAdapter = ActivitiesListAdapter(this,activitiesList)
         binding.activitiesLV.adapter = listAdapter
-
-/*        binding.activitiesBtn.setOnClickListener {
+        
+        binding.activitiesLV.setOnItemClickListener { parent, view, position, id ->
             navigateSuggestions()
-        }*/
+        }
+
     }
 
     private fun navigateSuggestions(){
