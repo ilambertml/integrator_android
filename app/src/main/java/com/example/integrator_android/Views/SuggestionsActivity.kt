@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.integrator_android.Application.Companion.prefs
 import com.example.integrator_android.Model.APIService
 import com.example.integrator_android.Model.ActivityResponse
 import com.example.integrator_android.R
+import com.example.integrator_android.Views.activitiesList.ActivitiesActivity
 import com.example.integrator_android.databinding.ActivitySuggestionsBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
@@ -67,34 +69,49 @@ class SuggestionsActivity : AppCompatActivity() {
             if(activityResponse.isSuccessful) {
 
                 runOnUiThread {
-                    binding.activityTV.text = activity?.activity
-                    binding.participantsTV.text = activity?.participants.toString()
 
-                    if(prefs.getCategory() != "random"){
-                        binding.categoryTV.visibility = View.INVISIBLE
-                        binding.categoryIV.visibility = View.INVISIBLE
-                    }else{
-                        binding.categoryTV.apply {
-                            this.visibility = View.VISIBLE
-                            this.text=activity?.type
-                        }
-                        binding.categoryIV.visibility = View.VISIBLE
-                    }
+                    if(activity?.error.isNullOrEmpty()){
 
-                    var priceLevel = activity?.price.toString()
-                    activity?.let {
-                        if(it.price == 0.0){
-                            priceLevel = "Free"
-                        }else if (it.price <= 0.3){
-                            priceLevel = "Low"
-                        }else if (it.price <= 0.6){
-                            priceLevel = "Medium"
+                        //if a matching activity is found, then we load it into the activity
+                        binding.activityTV.text = activity?.activity
+                        binding.amountParticipantsTV.text = activity?.participants.toString()
+
+                        if(prefs.getCategory() != "random"){
+                            binding.categoryTV.visibility = View.INVISIBLE
+                            binding.categoryIV.visibility = View.INVISIBLE
                         }else{
-                            priceLevel = "High"
+                            binding.categoryTV.apply {
+                                this.visibility = View.VISIBLE
+                                this.text=activity?.type
+                            }
+                            binding.categoryIV.visibility = View.VISIBLE
                         }
-                    }
 
-                    binding.priceTV.text = priceLevel
+                        var priceLevel = activity?.price.toString()
+                        activity?.let {
+                            if(it.price == 0.0){
+                                priceLevel = "Free"
+                            }else if (it.price <= 0.3){
+                                priceLevel = "Low"
+                            }else if (it.price <= 0.6){
+                                priceLevel = "Medium"
+                            }else{
+                                priceLevel = "High"
+                            }
+                        }
+
+                        binding.priceLevelTV.text = priceLevel
+                    }else{
+                        Log.e("API", activity?.error.toString())
+
+                        Toast.makeText(
+                            this@SuggestionsActivity,
+                            getString(R.string.errorNoActivity),
+                            Toast.LENGTH_LONG).show()
+
+                        val intent = Intent(applicationContext, ActivitiesActivity::class.java)
+                        startActivity(intent)
+                    }
 
                 }
             } else {

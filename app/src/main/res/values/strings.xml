@@ -62,6 +62,7 @@ nullam pellentesque.</string>
     <string name="typeRelaxation">relaxation</string>
     <string name="typeMusic">music</string>
     <string name="typeBusywork">busywork</string>
-    <string name="suggestionActTitle">We suggest you to...</string>
+    <string name="suggestionActTitle">We suggest you to…</string>
+    <string name="errorNoActivity">Sorry, no such activity, try another category or amount of participants</string>
 
 </resources>
