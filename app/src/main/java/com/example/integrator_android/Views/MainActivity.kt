@@ -1,11 +1,15 @@
 package com.example.integrator_android.Views
 
-import android.app.Application
+import android.R
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
+import android.text.SpannableString
 import android.text.TextWatcher
+import android.text.style.UnderlineSpan
+import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.integrator_android.Application.Companion.prefs
@@ -50,9 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        binding.TandCBtn.setOnClickListener {
-            navigateTandC()
-        }
+
 
         binding.editTextParticipants.addTextChangedListener(object : TextWatcher {
 
@@ -73,6 +75,10 @@ class MainActivity : AppCompatActivity() {
                 
             }
         })
+
+        binding.textLinkTermsAndCond.setOnClickListener {
+            navigateTandC()
+        }
 
 
     }
