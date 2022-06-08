@@ -1,8 +1,10 @@
 package com.example.integrator_android.Views
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.integrator_android.Application.Companion.prefs
@@ -18,8 +20,9 @@ import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private lateinit var binding: ActivitySuggestionsBinding
 class SuggestionsActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySuggestionsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -30,6 +33,13 @@ class SuggestionsActivity : AppCompatActivity() {
         actionBar?.setDisplayHomeAsUpEnabled(true) // showing the back button in action bar
 
         getActivity()
+
+        supportActionBar?.title = getString(R.string.suggestionActTitle)
+
+        binding.button.setOnClickListener {
+            finish()
+            startActivity(intent)
+        }
 
     }
     private fun getActivity(){
@@ -48,7 +58,6 @@ class SuggestionsActivity : AppCompatActivity() {
                     query += "type=$category"
                 }
             }
-            Log.d("URL",query)
 
             val activityResponse = getRetrofit()
                 .create(APIService::class.java)
@@ -57,11 +66,36 @@ class SuggestionsActivity : AppCompatActivity() {
             val activity : ActivityResponse? = activityResponse.body()
             if(activityResponse.isSuccessful) {
 
-                runOnUiThread { //correr esto en el hilo principal (main)
-                    binding.categoryTV.text=activity?.type
-                    binding.priceTV.text= activity?.price.toString()
+                runOnUiThread {
                     binding.activityTV.text = activity?.activity
                     binding.participantsTV.text = activity?.participants.toString()
+
+                    if(prefs.getCategory() != "random"){
+                        binding.categoryTV.visibility = View.INVISIBLE
+                        binding.categoryIV.visibility = View.INVISIBLE
+                    }else{
+                        binding.categoryTV.apply {
+                            this.visibility = View.VISIBLE
+                            this.text=activity?.type
+                        }
+                        binding.categoryIV.visibility = View.VISIBLE
+                    }
+
+                    var priceLevel = activity?.price.toString()
+                    activity?.let {
+                        if(it.price == 0.0){
+                            priceLevel = "Free"
+                        }else if (it.price <= 0.3){
+                            priceLevel = "Low"
+                        }else if (it.price <= 0.6){
+                            priceLevel = "Medium"
+                        }else{
+                            priceLevel = "High"
+                        }
+                    }
+
+                    binding.priceTV.text = priceLevel
+
                 }
             } else {
                 when(activityResponse.code()){

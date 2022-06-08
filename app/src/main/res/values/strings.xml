@@ -63,5 +63,6 @@ nullam pellentesque.</string>
     <string name="typeMusic">music</string>
     <string name="typeBusywork">busywork</string>
     <string name="tv_activity_activities_choose_category">Choose a category</string>
+    <string name="suggestionActTitle">We suggest you to...</string>
 
 </resources>
