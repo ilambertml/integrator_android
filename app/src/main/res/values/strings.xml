@@ -62,5 +62,6 @@ nullam pellentesque.</string>
     <string name="typeRelaxation">relaxation</string>
     <string name="typeMusic">music</string>
     <string name="typeBusywork">busywork</string>
+    <string name="suggestionActTitle">We suggest you to...</string>
 
 </resources>
