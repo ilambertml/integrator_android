@@ -18,7 +18,10 @@ import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+// TODO: Revisar porque Android dice que hay memory leak
 private lateinit var binding: ActivitySuggestionsBinding
+
+
 class SuggestionsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -48,7 +51,6 @@ class SuggestionsActivity : AppCompatActivity() {
                     query += "type=$category"
                 }
             }
-            Log.d("URL",query)
 
             val activityResponse = getRetrofit()
                 .create(APIService::class.java)
@@ -57,11 +59,26 @@ class SuggestionsActivity : AppCompatActivity() {
             val activity : ActivityResponse? = activityResponse.body()
             if(activityResponse.isSuccessful) {
 
-                runOnUiThread { //correr esto en el hilo principal (main)
+                runOnUiThread {
                     binding.categoryTV.text=activity?.type
-                    binding.priceTV.text= activity?.price.toString()
                     binding.activityTV.text = activity?.activity
                     binding.participantsTV.text = activity?.participants.toString()
+
+                    var priceLevel = activity?.price.toString()
+                    activity?.let {
+                        if(it.price == 0.0){
+                            priceLevel = "Free"
+                        }else if (it.price <= 0.3){
+                            priceLevel = "Low"
+                        }else if (it.price <= 0.6){
+                            priceLevel = "Medium"
+                        }else{
+                            priceLevel = "High"
+                        }
+                    }
+
+                    binding.priceTV.text = priceLevel
+
                 }
             } else {
                 when(activityResponse.code()){
