@@ -6,5 +6,6 @@ data class ActivityResponse (
     @SerializedName("type") var type: String,
     @SerializedName("participants") var participants: Int,
     @SerializedName("activity") var activity: String,
-    @SerializedName("price") var price: Double
+    @SerializedName("price") var price: Double,
+    @SerializedName("error") var error: String
 )

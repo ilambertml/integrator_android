@@ -1,6 +1,5 @@
 package com.example.integrator_android.Views
 
-import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -50,9 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        binding.TandCBtn.setOnClickListener {
-            navigateTandC()
-        }
+
 
         binding.editTextParticipants.addTextChangedListener(object : TextWatcher {
 
@@ -73,6 +70,10 @@ class MainActivity : AppCompatActivity() {
                 
             }
         })
+
+        binding.textLinkTermsAndCond.setOnClickListener {
+            navigateTandC()
+        }
 
 
     }
