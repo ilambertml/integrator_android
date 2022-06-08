@@ -54,22 +54,6 @@ class ActivitiesActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
-
-        val defaultValue = 0
-        val sharedPreferences = getSharedPreferences("preference_participants", Context.MODE_PRIVATE )
-        val participants = sharedPreferences.getInt("participants", defaultValue)
-
-        val toast = Toast.makeText(
-            applicationContext,
-            "Cantidad de participantes: $participants ",
-            Toast.LENGTH_SHORT
-        )
-        toast.show()
-
-
-
-
-
     }
 
     private fun navigateSuggestions(){

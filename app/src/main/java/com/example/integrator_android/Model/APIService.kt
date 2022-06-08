@@ -6,5 +6,6 @@ import retrofit2.http.Url
 
 interface APIService {
     @GET
-    suspend fun getDogsFromAPI(@Url query : String): Response<ActivityResponse>
+    suspend fun getActivity(@Url query : String): Response<ActivityResponse>
+
 }

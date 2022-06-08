@@ -22,7 +22,7 @@ class Prefs(private val context: Context) {
         storage.edit().putString(CATEGORY,category).apply()
     }
     fun getCategory():String{
-        return storage.getString(CATEGORY,"") ?: ""
+        return storage.getString(CATEGORY,"random") ?: "random"
     }
     fun saveTermsAndCondition(checked : Boolean) {
         storage.edit().putBoolean(TERMS_CHECKED,checked).apply()

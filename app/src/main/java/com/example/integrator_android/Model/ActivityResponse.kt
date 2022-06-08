@@ -3,6 +3,8 @@ package com.example.integrator_android.Model
 import com.google.gson.annotations.SerializedName
 
 data class ActivityResponse (
-    //TODO hay que cambiar estos parametros,lo deje asi para que ande el APIService
-    @SerializedName("message") var activityList: List<String>
+    @SerializedName("type") var type: String,
+    @SerializedName("participants") var participants: Int,
+    @SerializedName("activity") var activity: String,
+    @SerializedName("price") var price: Double
 )
