@@ -1,5 +1,6 @@
 package com.example.integrator_android.Views
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -34,6 +35,11 @@ class SuggestionsActivity : AppCompatActivity() {
         getActivity()
 
         supportActionBar?.title = getString(R.string.suggestionActTitle)
+
+        binding.button.setOnClickListener {
+            finish()
+            startActivity(intent)
+        }
 
     }
     private fun getActivity(){
