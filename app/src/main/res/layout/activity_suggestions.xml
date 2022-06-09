@@ -4,111 +4,165 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient1"
     tools:context=".Views.SuggestionsActivity">
 
-    <TextView
-        android:id="@+id/activityTV"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Learn how to play a new sport" />
-
-    <ImageView
-        android:id="@+id/participantsIV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="@+id/activityTV"
-        app:layout_constraintTop_toBottomOf="@+id/activityTV"
-        app:srcCompat="@drawable/ic_baseline_account_circle_24" />
-
-    <TextView
-        android:id="@+id/participantsTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="@+id/participantsIV"
-        app:layout_constraintStart_toEndOf="@+id/participantsIV"
-        app:layout_constraintTop_toTopOf="@+id/participantsIV"
-        android:text="@string/tv_activity_suggestions_participants" />
-
-    <TextView
-        android:id="@+id/amountParticipantsTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="@+id/participantsIV"
-        app:layout_constraintEnd_toEndOf="@+id/activityTV"
-        app:layout_constraintTop_toTopOf="@+id/participantsIV"
-        tools:text="2" />
-
-    <ImageView
-        android:id="@+id/priceIV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="@+id/participantsIV"
-        app:layout_constraintTop_toBottomOf="@+id/participantsIV"
-        app:srcCompat="@drawable/ic_baseline_monetization_on_24" />
-
-    <TextView
-        android:id="@+id/priceTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="@+id/priceIV"
-        app:layout_constraintStart_toEndOf="@+id/priceIV"
-        app:layout_constraintTop_toTopOf="@+id/priceIV"
-        android:text="@string/tv_activity_suggestions_price" />
-
-    <TextView
-        android:id="@+id/priceLevelTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="@+id/priceIV"
-        app:layout_constraintEnd_toEndOf="@+id/activityTV"
-        app:layout_constraintTop_toTopOf="@+id/priceIV"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="Medium" />
-
-    <ImageView
-        android:id="@+id/categoryIV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="@+id/priceIV"
-        app:layout_constraintTop_toBottomOf="@+id/priceIV"
-        app:srcCompat="@drawable/ic_baseline_format_list_bulleted_24" />
-
-    <TextView
-        android:id="@+id/categoryTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="@+id/categoryIV"
-        app:layout_constraintStart_toEndOf="@+id/categoryIV"
-        app:layout_constraintTop_toTopOf="@+id/categoryIV"
-        tools:text="Relaxation" />
-
-    <Button
-        android:id="@+id/button"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tv_activity_suggestions_try_another"
-        android:layout_margin="16dp"
+        android:background="@color/white"
+        android:layout_marginHorizontal="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/activityTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintEnd_toEndOf="@+id/participantsCL"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/participantsCL"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Learn how to play a new sport" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/participantsCL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/backgound_radius_corner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activityTV">
+
+
+            <ImageView
+                android:id="@+id/participantsIV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+
+            <TextView
+                android:id="@+id/participantsTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/tv_activity_suggestions_participants"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintBottom_toBottomOf="@+id/participantsIV"
+                app:layout_constraintStart_toEndOf="@+id/participantsIV"
+                app:layout_constraintTop_toTopOf="@+id/participantsIV" />
+
+            <TextView
+                android:id="@+id/amountParticipantsTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintBottom_toBottomOf="@+id/participantsIV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/participantsIV"
+                app:layout_constraintVertical_bias="0.333"
+                tools:text="2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/priceCL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/backgound_radius_corner"
+            app:layout_constraintEnd_toEndOf="@+id/participantsCL"
+            app:layout_constraintEnd_toStartOf="@+id/participantsCL"
+            app:layout_constraintStart_toStartOf="@+id/participantsCL"
+            app:layout_constraintTop_toBottomOf="@+id/participantsCL">
+
+            <ImageView
+                android:id="@+id/priceIV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_monetization_on_24" />
+
+            <TextView
+                android:id="@+id/priceTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/tv_activity_suggestions_price"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintBottom_toBottomOf="@+id/priceIV"
+                app:layout_constraintStart_toEndOf="@+id/priceIV"
+                app:layout_constraintTop_toTopOf="@+id/priceIV" />
+
+            <TextView
+                android:id="@+id/priceLevelTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintBottom_toBottomOf="@+id/priceIV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/priceIV"
+                app:layout_constraintVertical_bias="0.333"
+                tools:text="Medium" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/categoryCL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/backgound_radius_corner"
+            app:layout_constraintEnd_toEndOf="@+id/participantsCL"
+            app:layout_constraintStart_toStartOf="@+id/participantsCL"
+            app:layout_constraintTop_toBottomOf="@+id/priceCL">
+
+            <ImageView
+                android:id="@+id/categoryIV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_format_list_bulleted_24" />
+
+            <TextView
+                android:id="@+id/categoryTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+
+                app:layout_constraintBottom_toBottomOf="@+id/categoryIV"
+                app:layout_constraintStart_toEndOf="@+id/categoryIV"
+                app:layout_constraintTop_toTopOf="@+id/categoryIV"
+                tools:text="Relaxation" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_activity_suggestions_try_another"
+            android:layout_marginTop="16dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categoryCL" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
