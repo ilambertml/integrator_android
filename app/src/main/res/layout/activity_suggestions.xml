@@ -24,7 +24,6 @@
             android:layout_marginTop="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             app:layout_constraintEnd_toEndOf="@+id/participantsCL"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/participantsCL"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Learn how to play a new sport" />
@@ -70,7 +69,6 @@
                 app:layout_constraintBottom_toBottomOf="@+id/participantsIV"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/participantsIV"
-                app:layout_constraintVertical_bias="0.333"
                 tools:text="2" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -115,7 +113,6 @@
                 app:layout_constraintBottom_toBottomOf="@+id/priceIV"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/priceIV"
-                app:layout_constraintVertical_bias="0.333"
                 tools:text="Medium" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
