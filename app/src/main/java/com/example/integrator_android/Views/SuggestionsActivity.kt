@@ -1,6 +1,5 @@
 package com.example.integrator_android.Views
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -12,7 +11,6 @@ import com.example.integrator_android.Application.Companion.prefs
 import com.example.integrator_android.Model.APIService
 import com.example.integrator_android.Model.ActivityResponse
 import com.example.integrator_android.R
-import com.example.integrator_android.Views.activitiesList.ActivitiesActivity
 import com.example.integrator_android.databinding.ActivitySuggestionsBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
@@ -37,7 +35,7 @@ class SuggestionsActivity : AppCompatActivity() {
 
         supportActionBar?.title = getString(R.string.suggestionActTitle)
 
-        binding.button.setOnClickListener {
+        binding.tryAnotherBT.setOnClickListener {
             finish()
             startActivity(intent)
         }
@@ -66,26 +64,21 @@ class SuggestionsActivity : AppCompatActivity() {
 
             val activity : ActivityResponse? = activityResponse.body()
             if(activityResponse.isSuccessful) {
-
                 runOnUiThread {
-
                     if(activity?.error.isNullOrEmpty()){
-
                         //if a matching activity is found, then we load it into the activity
                         binding.activityTV.text = activity?.activity
                         binding.amountParticipantsTV.text = activity?.participants.toString()
-
                         if(prefs.getCategory() != "random"){
-                            binding.categoryTV.visibility = View.INVISIBLE
-                            binding.categoryIV.visibility = View.INVISIBLE
+                            binding.categoryCL.visibility = View.GONE
                         }else{
                             binding.categoryTV.apply {
                                 this.visibility = View.VISIBLE
                                 this.text=activity?.type
                             }
                             binding.categoryIV.visibility = View.VISIBLE
+                            binding.categoryCL.visibility = View.VISIBLE
                         }
-
                         var priceLevel = activity?.price.toString()
                         activity?.let {
                             if(it.price == 0.0){
@@ -98,7 +91,6 @@ class SuggestionsActivity : AppCompatActivity() {
                                 priceLevel = "High"
                             }
                         }
-
                         binding.priceLevelTV.text = priceLevel
                     }else{
                         Log.e("API", activity?.error.toString())
@@ -107,11 +99,8 @@ class SuggestionsActivity : AppCompatActivity() {
                             this@SuggestionsActivity,
                             getString(R.string.errorNoActivity),
                             Toast.LENGTH_LONG).show()
-
-                        val intent = Intent(applicationContext, ActivitiesActivity::class.java)
-                        startActivity(intent)
+                        onBackPressed()
                     }
-
                 }
             } else {
                 when(activityResponse.code()){
