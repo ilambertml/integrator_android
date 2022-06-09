@@ -14,7 +14,7 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:padding="16dp"
-        android:background="#512DA8"
+        android:background="@color/PurpleMain"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toTopOf="@+id/activitiesLV"
         app:layout_constraintEnd_toEndOf="parent"
