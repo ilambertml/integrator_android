@@ -30,17 +30,28 @@ class SuggestionsActivity : AppCompatActivity() {
 
         val actionBar: ActionBar? = supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true) // showing the back button in action bar
-
-        getActivity()
-
         supportActionBar?.title = getString(R.string.suggestionActTitle)
 
-        binding.tryAnotherBT.setOnClickListener {
-            finish()
-            startActivity(intent)
-        }
+        showLoading(true)
+        getActivity()
 
+        binding.tryAnotherBT.setOnClickListener {
+            getActivity()
+            showLoading(true)
+        }
     }
+
+    // showLoading(boolean) show or hide the widgets to show the "loading" or the suggested activity respectively
+    private fun showLoading(isVisible:Boolean) {
+        if (isVisible){
+            binding.cardSuggestionCL.visibility = View.GONE
+            binding.loadingTV.visibility = View.VISIBLE
+        } else {
+            binding.cardSuggestionCL.visibility = View.VISIBLE
+            binding.loadingTV.visibility = View.GONE
+        }
+    }
+
     private fun getActivity(){
         CoroutineScope(Dispatchers.IO).launch {
             var query="activity?"
@@ -92,6 +103,7 @@ class SuggestionsActivity : AppCompatActivity() {
                             }
                         }
                         binding.priceLevelTV.text = priceLevel
+                        showLoading(false)
                     }else{
                         Log.e("API", activity?.error.toString())
 
